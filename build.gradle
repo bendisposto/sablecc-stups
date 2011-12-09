@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+
+project.version = '3.2-stups-1'
+project.group = 'de.stups'
+
+repositories {
+     mavenCentral()
+}
+
+dependencies {
+ testCompile 'junit:junit:4.8.2'
+}
+
+task deploy(dependsOn: [jar,test,javadoc], group: 'Build')
+
+jar {
+	manifest {
+		attributes 'Main-Class': 'org.sablecc.sablecc.SableCC'
+	}
+}
