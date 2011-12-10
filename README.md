@@ -4,11 +4,18 @@ SableCC 3.2 - STUPS version
 This work is based on SableCC 3.2 by Etienne Gagnon. 
 
 Our version of SableCC enriches the abstract syntax tree with information about tokens. 
-Contributors to this vrsion of SableCC are:
+Contributors to the extension of SableCC are:
 
-Fabian Fritz
-Marc Büngener
-Jens Bendisposto 
+- Fabian Fritz
+- Marc Büngener
+- Jens Bendisposto 
+
+The authors of the SabelCC version this work is based on are listed in the AUTHORS file.
+
+This program is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+Lesser General Public License for more details.
 
 License 
 --- 
