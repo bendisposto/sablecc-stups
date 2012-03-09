@@ -7,7 +7,10 @@ project.version = '3.2.2-SNAPSHOT'
 project.group = 'de.stups'
 
 repositories {
-     mavenCentral()
+    maven {
+      name "cobra"
+      url "http://cobra.cs.uni-duesseldorf.de/artifactory/repo"
+    }
 }
 
 dependencies {
