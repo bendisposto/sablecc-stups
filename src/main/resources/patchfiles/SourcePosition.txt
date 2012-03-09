@@ -31,4 +31,10 @@ public class SourcePosition implements Comparable<SourcePosition>  {
 		return pos-that.pos;
 	}
 	
+	@Override
+	public String toString() {
+		return "(" + line + "," + pos + ")";
+	}
+	
+	
 }
