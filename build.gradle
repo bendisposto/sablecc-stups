@@ -3,11 +3,14 @@ apply plugin: 'eclipse'
 apply plugin: 'maven'
 
 
-project.version = '3.2.1'
+project.version = '3.2.2'
 project.group = 'de.stups'
 
 repositories {
-     mavenCentral()
+    maven {
+      name "cobra"
+      url "http://cobra.cs.uni-duesseldorf.de/artifactory/repo"
+    }
 }
 
 dependencies {

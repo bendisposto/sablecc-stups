@@ -6,7 +6,7 @@
 
 package de.hhu.stups.sablecc.patch;
 
-public class SourcePosition {
+public class SourcePosition implements Comparable<SourcePosition>  {
 
 	private final int line;
 
@@ -24,4 +24,17 @@ public class SourcePosition {
 	public int getPos() {
 		return pos;
 	}
+	
+	public int compareTo(SourcePosition that) {
+		if (that.line < line) return 1;
+		if (that.line > line) return -1;
+		return pos-that.pos;
+	}
+	
+	@Override
+	public String toString() {
+		return "(" + line + "," + pos + ")";
+	}
+	
+	
 }

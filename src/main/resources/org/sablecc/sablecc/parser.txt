@@ -55,8 +55,12 @@ public class Parser implements IParser
     private Map<PositionedNode, SourcecodeRange> mapping = new HashMap<PositionedNode, SourcecodeRange>();    
     public Map<PositionedNode, SourcecodeRange> getMapping() { 	return this.mapping; }
 
+   private void checkResult(Object elementToCheck) {
+       checkResult(elementToCheck, false);
+   }
+
 	@SuppressWarnings("unchecked")
-	private void checkResult(Object elementToCheck) {
+	private void checkResult(Object elementToCheck, boolean slurp) {
 		// nodes with no tokens or sub nodes at all may exist
 		if (this.firstPopped == null) {
 			return;
@@ -85,7 +89,7 @@ public class Parser implements IParser
 							+ elementToCheck);
 		}
 
-		if (!this.getMapping().containsKey(elementToCheck)) {
+		if (!this.getMapping().containsKey(elementToCheck) || slurp ) {
 			final PositionedNode node = (PositionedNode) elementToCheck;
 
 			// dealing with a one-token element
