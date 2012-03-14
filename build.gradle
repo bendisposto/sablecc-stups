@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven'
 
 
-project.version = '3.2.2-SNAPSHOT'
+project.version = '3.2.2'
 project.group = 'de.stups'
 
 repositories {
