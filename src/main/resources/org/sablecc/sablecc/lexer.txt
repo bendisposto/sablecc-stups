@@ -10,7 +10,7 @@ Macro:LexerException
 
 package $0$;
 
-@SuppressWarnings("serial")
+@SuppressWarnings({"serial"})
 public class LexerException extends Exception
 {
     public LexerException(String message)
@@ -32,7 +32,7 @@ import $1$.*;
 import de.hhu.stups.sablecc.patch.*;
 
 
-@SuppressWarnings("nls")
+@SuppressWarnings({"unused"}) 
 public class Lexer implements ITokenListContainer
 {
     protected Token token;
@@ -63,7 +63,7 @@ public class Lexer implements ITokenListContainer
 		tokenList = list;
 	}
 
-    @SuppressWarnings("unused")
+     
     protected void filter() throws LexerException, IOException
     {
         // Do nothing
@@ -78,7 +78,7 @@ public class Lexer implements ITokenListContainer
     }
 
 
-    public Lexer(@SuppressWarnings("hiding") PushbackReader in)
+    public Lexer(  PushbackReader in)
     {
         this.in = in;
     	setTokenList(new ArrayList<IToken>());
@@ -121,8 +121,8 @@ public class Lexer implements ITokenListContainer
         int accept_pos = -1;
         int accept_line = -1;
 
-        @SuppressWarnings("hiding") int[][][] gotoTable = Lexer.gotoTable[this.state.id()];
-        @SuppressWarnings("hiding") int[] accept = Lexer.accept[this.state.id()];
+          int[][][] gotoTable = Lexer.gotoTable[this.state.id()];
+          int[] accept = Lexer.accept[this.state.id()];
         this.text.setLength(0);
 
         while(true)
@@ -216,7 +216,7 @@ $
 Macro:LexerVariableToken
                     case $0$:
                         {
-                            @SuppressWarnings("hiding") Token token = new$0$(
+                              Token token = new$0$(
                                 getText(accept_length),
                                 start_line + 1,
                                 start_pos + 1);
@@ -229,7 +229,7 @@ $
 Macro:LexerFixedToken
                     case $0$:
                         {
-                            @SuppressWarnings("hiding") Token token = new$0$(
+                              Token token = new$0$(
                                 start_line + 1,
                                 start_pos + 1);
                             pushBack(accept_length);
@@ -272,7 +272,7 @@ Macro:LexerBody1
                             " Unknown token: " + this.text);
                     }
 
-                    @SuppressWarnings("hiding") EOF token = new EOF(
+                      EOF token = new EOF(
                         start_line + 1,
                         start_pos + 1);
                     return token;
@@ -285,12 +285,12 @@ Macro:LexerBody1
 $
 
 Macro:LexerNewVariableToken
-    Token new$0$(@SuppressWarnings("hiding") String text, @SuppressWarnings("hiding") int line, @SuppressWarnings("hiding") int pos) { return new $1$(text, line, pos); }
+    Token new$0$(  String text,   int line,   int pos) { return new $1$(text, line, pos); }
 
 $
 
 Macro:LexerNewFixedToken
-    Token new$0$(@SuppressWarnings("hiding") int line, @SuppressWarnings("hiding") int pos) { return new $1$(line, pos); }
+    Token new$0$(  int line,   int pos) { return new $1$(line, pos); }
 
 $
 
@@ -324,9 +324,9 @@ Macro:LexerBody2
         }
     }
 
-    protected void unread(@SuppressWarnings("hiding") Token token) throws IOException
+    protected void unread(  Token token) throws IOException
     {
-        @SuppressWarnings("hiding") String text = token.getText();
+          String text = token.getText();
         int length = text.length();
 
         for(int i = length - 1; i >= 0; i--)
@@ -385,7 +385,7 @@ Macro:LexerStateTail
 
         private int id;
 
-        private State(@SuppressWarnings("hiding") int id)
+        private State(  int id)
         {
             this.id = id;
         }

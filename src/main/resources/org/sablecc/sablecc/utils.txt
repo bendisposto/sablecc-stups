@@ -12,7 +12,6 @@ package $0$;
 
 import $1$.*;
 
-@SuppressWarnings("nls")
 public final class Start extends Node
 {
     private $2$ _$3$_;
@@ -24,8 +23,8 @@ public final class Start extends Node
     }
 
     public Start(
-        @SuppressWarnings("hiding") $2$ _$3$_,
-        @SuppressWarnings("hiding") EOF _eof_)
+          $2$ _$3$_,
+          EOF _eof_)
     {
         set$2$(_$3$_);
         setEOF(_eof_);
@@ -148,7 +147,7 @@ package $0$;
 
 import $1$.*;
 
-@SuppressWarnings("nls")
+
 public final class EOF extends Token
 {
     public EOF()
@@ -185,7 +184,7 @@ package $0$;
 import de.hhu.stups.sablecc.patch.IToken;
 
 
-@SuppressWarnings("nls")
+
 public abstract class Token extends Node implements IToken
 {
     private String text;
@@ -197,7 +196,7 @@ public abstract class Token extends Node implements IToken
         return this.text;
     }
 
-    public void setText(@SuppressWarnings("hiding") String text)
+    public void setText(  String text)
     {
         this.text = text;
     }
@@ -207,7 +206,7 @@ public abstract class Token extends Node implements IToken
         return this.line;
     }
 
-    public void setLine(@SuppressWarnings("hiding") int line)
+    public void setLine(  int line)
     {
         this.line = line;
     }
@@ -217,7 +216,7 @@ public abstract class Token extends Node implements IToken
         return this.pos;
     }
 
-    public void setPos(@SuppressWarnings("hiding") int pos)
+    public void setPos(  int pos)
     {
         this.pos = pos;
     }
@@ -229,13 +228,13 @@ public abstract class Token extends Node implements IToken
     }
 
     @Override
-    void removeChild(@SuppressWarnings("unused") Node child)
+    void removeChild( Node child)
     {
         throw new RuntimeException("Not a child.");
     }
 
     @Override
-    void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
+    void replaceChild( Node oldChild, Node newChild)
     {
         throw new RuntimeException("Not a child.");
     }
@@ -251,7 +250,7 @@ package $0$;
 import java.util.*;
 import de.hhu.stups.sablecc.patch.PositionedNode;
 
-@SuppressWarnings("nls")
+@SuppressWarnings({"rawtypes","unchecked"})
 public abstract class Node extends PositionedNode implements Switchable, Cloneable
 {
     private Node parent;
@@ -264,7 +263,7 @@ public abstract class Node extends PositionedNode implements Switchable, Cloneab
         return this.parent;
     }
 
-    void parent(@SuppressWarnings("hiding") Node parent)
+    void parent(  Node parent)
     {
         this.parent = parent;
     }
@@ -299,7 +298,7 @@ public abstract class Node extends PositionedNode implements Switchable, Cloneab
         return s.toString();
     }
 
-    @SuppressWarnings("unchecked")
+
     protected <T extends Node> T cloneNode(T node)
     {
         if(node != null)

@@ -131,7 +131,7 @@ Macro:AnalysisAdapterTail
         defaultCase(node);
     }
 
-    public void defaultCase(@SuppressWarnings("unused") Node node)
+    public void defaultCase(  Node node)
     {
         // do nothing
     }
@@ -149,6 +149,9 @@ import $1$.*;
 
 public class DepthFirstAdapter extends AnalysisAdapter
 {
+
+    final List<Void> dummy = new ArrayList<Void>();
+
     public void inStart(Start node)
     {
         defaultIn(node);
@@ -159,12 +162,12 @@ public class DepthFirstAdapter extends AnalysisAdapter
         defaultOut(node);
     }
 
-    public void defaultIn(@SuppressWarnings("unused") Node node)
+    public void defaultIn(  Node node)
     {
         // Do nothing
     }
 
-    public void defaultOut(@SuppressWarnings("unused") Node node)
+    public void defaultOut(  Node node)
     {
         // Do nothing
     }
@@ -188,8 +191,11 @@ package $0$;
 import java.util.*;
 import $1$.*;
 
+
 public class ReversedDepthFirstAdapter extends AnalysisAdapter
 {
+    final List<Void> dummy = new ArrayList<Void>();
+
     public void inStart(Start node)
     {
         defaultIn(node);
@@ -200,12 +206,12 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         defaultOut(node);
     }
 
-    public void defaultIn(@SuppressWarnings("unused") Node node)
+    public void defaultIn(  Node node)
     {
         // Do nothing
     }
 
-    public void defaultOut(@SuppressWarnings("unused") Node node)
+    public void defaultOut(  Node node)
     {
         // Do nothing
     }

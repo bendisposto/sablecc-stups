@@ -5,6 +5,7 @@ package org.sablecc.sablecc.node;
 import java.util.*;
 import org.sablecc.sablecc.analysis.*;
 
+@SuppressWarnings({"rawtypes","unchecked"})
 public abstract class Node implements Switchable, Cloneable
 {
   private Node parent;
