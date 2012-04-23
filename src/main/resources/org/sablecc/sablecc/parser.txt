@@ -21,7 +21,7 @@ import java.io.DataInputStream;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 
- 
+@SuppressWarnings({"rawtypes","unchecked","unused"})
 public class Parser implements IParser
 {
     public final Analysis ignoredTokens = new AnalysisAdapter();
@@ -666,7 +666,7 @@ package $0$;
 
 import $1$.*;
 
- 
+@SuppressWarnings("serial") 
 public class ParserException extends Exception
 {
     Token token;

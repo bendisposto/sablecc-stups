@@ -10,7 +10,7 @@ Macro:LexerException
 
 package $0$;
 
- 
+@SuppressWarnings({"serial"})
 public class LexerException extends Exception
 {
     public LexerException(String message)
@@ -32,7 +32,7 @@ import $1$.*;
 import de.hhu.stups.sablecc.patch.*;
 
 
- 
+@SuppressWarnings({"unused"}) 
 public class Lexer implements ITokenListContainer
 {
     protected Token token;
