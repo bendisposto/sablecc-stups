@@ -150,7 +150,7 @@ import $1$.*;
 public class DepthFirstAdapter extends AnalysisAdapter
 {
 
-    final List dummy = new ArrayList();
+    final List<Void> dummy = new ArrayList<Void>();
 
     public void inStart(Start node)
     {
@@ -194,7 +194,7 @@ import $1$.*;
 
 public class ReversedDepthFirstAdapter extends AnalysisAdapter
 {
-    final List dummy = new ArrayList();
+    final List<Void> dummy = new ArrayList<Void>();
 
     public void inStart(Start node)
     {
