@@ -21,7 +21,7 @@ $
 Macro:AlternativeHeader2
 import $0$.*;
 
-@SuppressWarnings("nls")
+ 
 public final class $1$ extends $2$
 {
 
@@ -44,12 +44,12 @@ $
 
 Macro:ConstructorHeaderDeclNode
 
-        @SuppressWarnings("hiding") $0$ _$1$_$2$
+          $0$ _$1$_$2$
 $
 
 Macro:ConstructorHeaderDeclList
 
-        @SuppressWarnings("hiding") List<$0$> _$1$_$2$
+          List<$0$> _$1$_$2$
 $
 
 Macro:ConstructorBodyHeader
@@ -189,7 +189,7 @@ $
 Macro:RemoveChildHeader
 
     @Override
-    void removeChild(@SuppressWarnings("unused") Node child)
+    void removeChild(  Node child)
     {
         // Remove child
 
@@ -223,7 +223,7 @@ $
 Macro:ReplaceChildHeader
 
     @Override
-    void replaceChild(@SuppressWarnings("unused") Node oldChild, @SuppressWarnings("unused") Node newChild)
+    void replaceChild(  Node oldChild,   Node newChild)
     {
         // Replace child
 

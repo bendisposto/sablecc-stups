@@ -131,7 +131,7 @@ Macro:AnalysisAdapterTail
         defaultCase(node);
     }
 
-    public void defaultCase(@SuppressWarnings("unused") Node node)
+    public void defaultCase(  Node node)
     {
         // do nothing
     }
@@ -159,12 +159,12 @@ public class DepthFirstAdapter extends AnalysisAdapter
         defaultOut(node);
     }
 
-    public void defaultIn(@SuppressWarnings("unused") Node node)
+    public void defaultIn(  Node node)
     {
         // Do nothing
     }
 
-    public void defaultOut(@SuppressWarnings("unused") Node node)
+    public void defaultOut(  Node node)
     {
         // Do nothing
     }
@@ -200,12 +200,12 @@ public class ReversedDepthFirstAdapter extends AnalysisAdapter
         defaultOut(node);
     }
 
-    public void defaultIn(@SuppressWarnings("unused") Node node)
+    public void defaultIn(  Node node)
     {
         // Do nothing
     }
 
-    public void defaultOut(@SuppressWarnings("unused") Node node)
+    public void defaultOut(  Node node)
     {
         // Do nothing
     }

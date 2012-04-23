@@ -15,7 +15,7 @@ package $0$;
 
 import $1$.*;
 
-@SuppressWarnings("nls")
+ 
 public final class $2$ extends Token
 {
     public $2$(String text)
@@ -55,7 +55,7 @@ package $0$;
 
 import $1$.*;
 
-@SuppressWarnings("nls")
+ 
 public final class $2$ extends Token
 {
     public $2$()
@@ -82,7 +82,7 @@ public final class $2$ extends Token
     }
 
     @Override
-    public void setText(@SuppressWarnings("unused") String text)
+    public void setText(  String text)
     {
         throw new RuntimeException("Cannot change $2$ text.");
     }

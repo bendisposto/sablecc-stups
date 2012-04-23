@@ -21,7 +21,7 @@ import java.io.DataInputStream;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 
-@SuppressWarnings("nls")
+ 
 public class Parser implements IParser
 {
     public final Analysis ignoredTokens = new AnalysisAdapter();
@@ -45,7 +45,7 @@ public class Parser implements IParser
     private ArrayList lastPopped = null;
     private ITokenListContainer lex;
 
-    public Parser(@SuppressWarnings("hiding") Lexer lexer)
+    public Parser(  Lexer lexer)
     {
         this.lexer = lexer;
         this.lex = lexer; 
@@ -59,7 +59,7 @@ public class Parser implements IParser
        checkResult(elementToCheck, false);
    }
 
-	@SuppressWarnings("unchecked")
+	 
 	private void checkResult(Object elementToCheck, boolean slurp) {
 		// nodes with no tokens or sub nodes at all may exist
 		if (this.firstPopped == null) {
@@ -108,7 +108,7 @@ public class Parser implements IParser
 		}
 	}
 	
-	@SuppressWarnings({ "unchecked", "unused" })
+	 
 	private int findBeginPos(final ArrayList list,
 			PositionedNode n) {
 		Object first = list.get(0);
@@ -139,7 +139,7 @@ public class Parser implements IParser
 		return item.getBeginIndex();
 	}
 
-	@SuppressWarnings({ "unchecked", "unused" })
+	 
 	private int findEndPos(final ArrayList list) {
 		Object last = list.get(list.size() - 1);
 		if (!(last instanceof PositionedNode) && !(last instanceof IToken)) {
@@ -184,7 +184,7 @@ public class Parser implements IParser
 $
 
 Macro:ParserInliningPushHeader
-    @SuppressWarnings({"unchecked","unused"})
+     
     private void push(int numstate, ArrayList listNode) throws ParserException, LexerException, IOException
     {
         this.nodeList = listNode;
@@ -276,7 +276,7 @@ Macro:ParserCommon
         return this.converter.index;
     }
 
-    @SuppressWarnings("unchecked")
+     
     public Start parse() throws ParserException, LexerException, IOException
     {
     	this.getMapping().clear();
@@ -391,18 +391,18 @@ $
 Macro:ParserNewHeader
 
 
-    @SuppressWarnings("unchecked")
+     
     ArrayList new$0$() /* reduce $1$ */
     {
         this.firstPopped = null;
         this.lastPopped = null;
-        @SuppressWarnings("hiding") ArrayList nodeList = new ArrayList();
+          ArrayList nodeList = new ArrayList();
 
 
 $
 
 Macro:ParserNewBodyDecl
-        @SuppressWarnings("unused") ArrayList nodeArrayList$0$ = pop();
+          ArrayList nodeArrayList$0$ = pop();
 
 $
 
@@ -433,7 +433,7 @@ Macro:ParserListVariableDeclaration
 $
 
 Macro:ParserNullVariableDeclaration
-        @SuppressWarnings("unused") Object nullNode$0$ = null;
+          Object nullNode$0$ = null;
 
 $
 
@@ -641,7 +641,7 @@ $
 Macro:TokenIndexBody
 
     @Override
-    public void case$0$(@SuppressWarnings("unused") $0$ node)
+    public void case$0$(  $0$ node)
     {
         this.index = $1$;
     }
@@ -651,7 +651,7 @@ $
 Macro:TokenIndexTail
 
     @Override
-    public void caseEOF(@SuppressWarnings("unused") EOF node)
+    public void caseEOF(  EOF node)
     {
         this.index = $0$;
     }
@@ -666,12 +666,12 @@ package $0$;
 
 import $1$.*;
 
-@SuppressWarnings("serial")
+ 
 public class ParserException extends Exception
 {
     Token token;
 
-    public ParserException(@SuppressWarnings("hiding") Token token, String  message)
+    public ParserException(  Token token, String  message)
     {
         super(message);
         this.token = token;
@@ -697,7 +697,7 @@ final class State
     int state;
     ArrayList nodes;
 
-    State(@SuppressWarnings("hiding") int state, @SuppressWarnings("hiding") ArrayList nodes)
+    State(  int state,   ArrayList nodes)
     {
         this.state = state;
         this.nodes = nodes;
