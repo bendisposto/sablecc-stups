@@ -98,7 +98,8 @@ public class Parser implements IParser
 			}
 
 			final int begin = findBeginPos(this.lastPopped, node);
-			final int end = findEndPos(this.firstPopped);
+			int end = findEndPos(this.firstPopped);
+			if (end == -1) end = begin;
 			final SourcecodeRange range = new SourcecodeRange(begin, end);
 
 			this.getMapping().put(node, range);
@@ -153,6 +154,8 @@ public class Parser implements IParser
 
 		final PositionedNode node = (PositionedNode) last;
 		final SourcecodeRange item = this.getMapping().get(node);
+		if (item == null)
+			return -1;
 		return item.getEndIndex();
 	}
 
