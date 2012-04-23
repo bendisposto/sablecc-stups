@@ -250,7 +250,7 @@ package $0$;
 import java.util.*;
 import de.hhu.stups.sablecc.patch.PositionedNode;
 
-
+@SuppressWarnings({"rawtypes","unchecked"})
 public abstract class Node extends PositionedNode implements Switchable, Cloneable
 {
     private Node parent;

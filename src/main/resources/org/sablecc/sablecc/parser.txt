@@ -692,6 +692,7 @@ package $0$;
 
 import java.util.ArrayList;
 
+@SuppressWarnings("rawtypes")
 final class State
 {
     int state;
