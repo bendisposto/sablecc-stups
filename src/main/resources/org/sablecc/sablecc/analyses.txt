@@ -147,6 +147,7 @@ package $0$;
 import java.util.*;
 import $1$.*;
 
+@SuppressWarnings("unused")
 public class DepthFirstAdapter extends AnalysisAdapter
 {
     public void inStart(Start node)
@@ -188,6 +189,7 @@ package $0$;
 import java.util.*;
 import $1$.*;
 
+@SuppressWarnings("unused")
 public class ReversedDepthFirstAdapter extends AnalysisAdapter
 {
     public void inStart(Start node)
