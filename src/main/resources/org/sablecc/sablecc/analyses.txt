@@ -147,9 +147,11 @@ package $0$;
 import java.util.*;
 import $1$.*;
 
-@SuppressWarnings("unused")
 public class DepthFirstAdapter extends AnalysisAdapter
 {
+
+    final List dummy = new ArrayList();
+
     public void inStart(Start node)
     {
         defaultIn(node);
@@ -189,9 +191,11 @@ package $0$;
 import java.util.*;
 import $1$.*;
 
-@SuppressWarnings("unused")
+
 public class ReversedDepthFirstAdapter extends AnalysisAdapter
 {
+    final List dummy = new ArrayList();
+
     public void inStart(Start node)
     {
         defaultIn(node);
