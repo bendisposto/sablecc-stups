@@ -693,7 +693,7 @@ public class ParserException extends Exception
         return this.token;
     }
 
-    public Token getRealMsg()
+    public String getRealMsg()
     {
         return this.realMsg;
     }
