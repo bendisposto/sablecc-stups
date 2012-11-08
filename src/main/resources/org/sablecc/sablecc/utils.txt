@@ -315,7 +315,7 @@ public abstract class Node extends PositionedNode implements Switchable, Cloneab
 
         for(T n : list)
         {
-            clone.add(n);
+            clone.add(cloneNode(n));
         }
 
         return clone;
