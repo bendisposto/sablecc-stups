@@ -30,6 +30,7 @@ import java.io.*;
 import java.util.*;
 import $1$.*;
 import de.hhu.stups.sablecc.patch.*;
+import java.util.concurrent.LinkedBlockingQueue;
 
 
 @SuppressWarnings({"unused"}) 
