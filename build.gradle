@@ -5,6 +5,7 @@ apply plugin: 'maven'
 
 project.version = '3.2.9-SNAPSHOT'
 project.group = 'de.stups'
+sourceCompatibility = 1.5
 
 repositories {
     maven {
