@@ -300,8 +300,8 @@ public class SourcePositions {
 	 * </p>
 	 * <p>
 	 * If no token list is available <code>-1</code> is returned. For
-	 * <code>line < 0</code> the index <code>0</code> is returned. If
-	 * <code>line >= 1 && column < 0</code> the line number is returned.
+	 * <code>line &lt; 0</code> the index <code>0</code> is returned. If
+	 * <code>line &gt;= 1 &amp;&amp; column &lt; 0</code> the line number is returned.
 	 * </p>
 	 * <p>
 	 * If the line matches but the requested column is beyond the max. length of
