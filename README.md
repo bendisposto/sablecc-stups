@@ -1,6 +1,8 @@
 SableCC 3.2 - STUPS version
 ===
 
+[![Build Status](https://travis-ci.org/bendisposto/sablecc-stups.svg)](https://travis-ci.org/bendisposto/sablecc-stups)
+
 This work is based on SableCC 3.2 by Etienne Gagnon. 
 
 Our version of SableCC enriches the abstract syntax tree with information about tokens. 
