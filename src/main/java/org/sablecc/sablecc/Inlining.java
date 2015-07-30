@@ -76,7 +76,7 @@ public class Inlining
     if(prodMustBeInlined.getValue())
     {
       /*
-      Once we detect that the production can be inline, 
+      Once we detect that the production can be inline,
       we try to inline each of its alternatives.
        */
       LinkedList listOfAlts = new TypedLinkedList(NodeCast.instance);
@@ -150,7 +150,7 @@ public class Inlining
     return inlinedAlternatives;
   }
 
-  /*****************************************************************
+  /*
   boolean containsDoubloons(List aList)
   {
     AAlt[] alts = (AAlt [])aList.toArray(new AAlt[0]);
@@ -176,9 +176,9 @@ public class Inlining
   }
       }
     }
-    return false; 
+    return false;
   }
-  /*****************************************************************/
+  */
 
   /*
    * Inlining of an alternative
