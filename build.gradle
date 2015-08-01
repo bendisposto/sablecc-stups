@@ -37,10 +37,31 @@ artifacts {
     archives javadocJar, sourcesJar
 }
 
+task writeVersion() {
+
+  doFirst {
+  def buildconstants_class = """
+  package org.sablecc.sablecc;
+
+  public class Version
+  {
+    public static final String VERSION = "${project.version}";
+  }
+  """
+  File f = file("src/main/java/org/sablecc/sablecc/Version.java")
+  f.delete()
+  f <<  buildconstants_class
+ }
+}
+
+compileJava {
+  dependsOn = ['writeVersion']
+}
+
 task deploy(dependsOn: [jar,test,javadoc], group: 'Build')
 
 if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
-  
+
 apply plugin: 'signing'
 
 signing {
