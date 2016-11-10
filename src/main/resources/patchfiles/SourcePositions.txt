@@ -20,6 +20,11 @@ public class SourcePositions {
 		this.positions = positions;
 	}
 
+
+        public Map<PositionedNode, SourcecodeRange> getPositions() {
+          return this.positions;
+	}
+
 	/**
 	 * Returns the {@link SourcecodeRange} of this {@link PositionedNode} or
 	 * <code>null</code> if no {@link SourcecodeRange} is available.
