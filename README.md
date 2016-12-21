@@ -1,6 +1,8 @@
 SableCC 3.2 - STUPS version
 ===
 
+[![Build Status](https://travis-ci.org/bendisposto/sablecc-stups.svg)](https://travis-ci.org/bendisposto/sablecc-stups)
+
 This work is based on SableCC 3.2 by Etienne Gagnon. 
 
 Our version of SableCC enriches the abstract syntax tree with information about tokens. 
@@ -10,7 +12,7 @@ Contributors to the extension of SableCC are:
 - Marc Büngener
 - Jens Bendisposto 
 
-The authors of the SabelCC version this work is based on are listed in the AUTHORS file.
+The authors of the SableCC version this work is based on are listed in the AUTHORS file.
 
 This program is distributed in the hope that it will be useful, but
 WITHOUT ANY WARRANTY; without even the implied warranty of
@@ -20,7 +22,7 @@ Lesser General Public License for more details.
 License 
 --- 
 
-This derived work is like SableCC covered by the GNU Lesser General Public License. You can view the copyright notice and the exact terms of the license in the files LICENSE, AUTHORS and COPYING-LESSER.
+This derived work is, like SableCC, covered by the GNU Lesser General Public License. You can view the copyright notice and the exact terms of the license in the files LICENSE, AUTHORS and COPYING-LESSER.
 
 Building
 ---

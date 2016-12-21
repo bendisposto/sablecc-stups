@@ -32,7 +32,6 @@ import $1$.*;
 import de.hhu.stups.sablecc.patch.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
-
 @SuppressWarnings({"unused"}) 
 public class Lexer implements ITokenListContainer
 {

@@ -1,7 +1,7 @@
-/** 
- * (c) 2009 Lehrstuhl fuer Softwaretechnik und Programmiersprachen, 
+/**
+ * (c) 2009 Lehrstuhl fuer Softwaretechnik und Programmiersprachen,
  * Heinrich Heine Universitaet Duesseldorf
- * This software is licenced under EPL 1.0 (http://www.eclipse.org/org/documents/epl-v10.html) 
+ * This software is licenced under EPL 1.0 (http://www.eclipse.org/org/documents/epl-v10.html)
  * */
 
 package de.hhu.stups.sablecc.patch;
@@ -23,9 +23,9 @@ public class SourcePositions {
 	/**
 	 * Returns the {@link SourcecodeRange} of this {@link PositionedNode} or
 	 * <code>null</code> if no {@link SourcecodeRange} is available.
-	 * 
-	 * @param node
-	 * @return
+	 *
+	 * @param node the node with source code information
+	 * @return the source code range of <code>node</code>
 	 */
 	public SourcecodeRange getSourcecodeRange(final PositionedNode node) {
 		return positions.get(node);
@@ -35,9 +35,9 @@ public class SourcePositions {
 	 * Returns the line in which this {@link PositionedNode} begins. The value
 	 * <code>0</code> is returned if no sourcecode range is available for this
 	 * {@link PositionedNode}.
-	 * 
-	 * @param node
-	 * @return
+	 *
+	 * @param node the node with source code information
+	 * @return the line where the <code>node</code> starts
 	 */
 	public int getBeginLine(final PositionedNode node) {
 		if (node instanceof IToken) {
@@ -59,9 +59,9 @@ public class SourcePositions {
 	 * Returns the column of the first character of this {@link PositionedNode},
 	 * i.e. the begin column. The value <code>0</code> is returned if no
 	 * sourcecode range is available for this {@link PositionedNode}.
-	 * 
-	 * @param node
-	 * @return
+	 *
+	 * @param node	the node with source code information
+	 * @return	the begin column of <code>node</code>
 	 */
 	public int getBeginColumn(final PositionedNode node) {
 		if (node instanceof IToken) {
@@ -83,9 +83,9 @@ public class SourcePositions {
 	 * Returns the line in which the {@link PositionedNode} ends. The value
 	 * <code>0</code> is returned if no sourcecode range is available for this
 	 * {@link PositionedNode}.
-	 * 
-	 * @param node
-	 * @return
+	 *
+	 * @param node	the node with source code information
+	 * @return	the end line of <code>node</code>
 	 */
 	public int getEndLine(final PositionedNode node) {
 		// TODO handle multi line comments
@@ -127,9 +127,9 @@ public class SourcePositions {
 	 * of the last character of the {@link PositionedNode}. The value
 	 * <code>0</code> is returned if no sourcecode range is available for this
 	 * {@link PositionedNode}.
-	 * 
-	 * @param node
-	 * @return
+	 *
+	 * @param node	the node with source code information
+	 * @return	the end column of <code>node</code>
 	 */
 	public int getEndColumn(final PositionedNode node) {
 		// TODO handle multi line comments
@@ -159,12 +159,12 @@ public class SourcePositions {
 	 * private int getEndColumn(final TComment commentToken) { final String
 	 * asString = commentToken.getText(); final StringTokenizer tokenizer = new
 	 * StringTokenizer(asString, "\n\r");
-	 * 
+	 *
 	 * // multi line comment if (tokenizer.countTokens() > 1) { String line =
 	 * null; while (tokenizer.hasMoreTokens()) { line = tokenizer.nextToken(); }
-	 * 
+	 *
 	 * if (line == null) { return 0; }
-	 * 
+	 *
 	 * return line.length(); } // single line comment else { return
 	 * commentToken.getPos() + asString.length(); } }
 	 */
@@ -173,9 +173,9 @@ public class SourcePositions {
 	 * Returns the array of {@link IToken}s belonging to this
 	 * {@link PositionedNode}. The array may be empty, if no sourcecode range
 	 * can be determined for this {@link PositionedNode}.
-	 * 
-	 * @param node
-	 * @return
+	 *
+	 * @param node	the node with source code information
+	 * @return	all tokens of <code>node</code>
 	 */
 	public IToken[] getTokens(final PositionedNode node) {
 		if (node instanceof IToken) {
@@ -225,13 +225,13 @@ public class SourcePositions {
 
 	// TODO handle comments
 	/*
-	 * 
+	 *
 	 * public IToken getCommentBefore(final PositionedNode node) { final
 	 * SourcecodeRange range = getSourcecodeRange(node); final int beginIndex =
 	 * range.getBeginIndex(); if (beginIndex > 0) { final IToken token =
 	 * tokenList.get(beginIndex - 1); if (token instanceof TComment) { return
 	 * token; } else { return null; } } else { return null; } }
-	 * 
+	 *
 	 * public IToken getCommentAfter(final PositionedNode node) { final
 	 * SourcecodeRange range = getSourcecodeRange(node); final int endIndex =
 	 * range.getEndIndex(); if (endIndex < tokenList.size() - 1) { final IToken
@@ -239,15 +239,15 @@ public class SourcePositions {
 	 * return token; } else { return null; } } else { return null; } } public
 	 * IToken[] getIncludedComments(final PositionedNode node) { final
 	 * SourcecodeRange range = getSourcecodeRange(node);
-	 * 
+	 *
 	 * if (range != null) { final int beginIndex = range.getBeginIndex(); final
 	 * int endIndex = range.getEndIndex(); final List<IToken> comments = new
 	 * ArrayList<IToken>();
-	 * 
+	 *
 	 * for (int i = 0; i + beginIndex <= endIndex; i++) { final IToken token =
 	 * tokenList.get(i + beginIndex); if (token instanceof TComment) {
 	 * comments.add(token); } }
-	 * 
+	 *
 	 * return comments.toArray(new IToken[comments.size()]); } else { return new
 	 * IToken[0]; } }
 	 */
@@ -300,8 +300,8 @@ public class SourcePositions {
 	 * </p>
 	 * <p>
 	 * If no token list is available <code>-1</code> is returned. For
-	 * <code>line < 0</code> the index <code>0</code> is returned. If
-	 * <code>line >= 1 && column < 0</code> the line number is returned.
+	 * <code>line &lt; 0</code> the index <code>0</code> is returned. If
+	 * <code>line &gt;= 1 &amp;&amp; column &lt; 0</code> the line number is returned.
 	 * </p>
 	 * <p>
 	 * If the line matches but the requested column is beyond the max. length of
@@ -312,7 +312,7 @@ public class SourcePositions {
 	 * <p>
 	 * <b>Attention</b>: Line and column counting starts at 1!
 	 * </p>
-	 * 
+	 *
 	 * @param line
 	 *            line of the position
 	 * @param column
@@ -412,7 +412,7 @@ public class SourcePositions {
 
 	/**
 	 * Compares the token position (within line only) with the column.
-	 * 
+	 *
 	 * @param token
 	 * @param column
 	 * @return <code>-1</code> if <code>column < beginColumn</code>,
