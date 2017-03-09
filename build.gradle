@@ -3,7 +3,7 @@ apply plugin: 'eclipse'
 apply plugin: 'maven'
 
 
-project.version = '3.2.12'
+project.version = '3.2.13-SNAPSHOT'
 project.group = 'de.hhu.stups'
 project.archivesBaseName = "sablecc"
 
