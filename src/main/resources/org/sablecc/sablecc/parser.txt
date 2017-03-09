@@ -55,9 +55,9 @@ public class Parser implements IParser
     private Map<PositionedNode, SourcecodeRange> mapping = new HashMap<PositionedNode, SourcecodeRange>();    
     public Map<PositionedNode, SourcecodeRange> getMapping() { 	return this.mapping; }
 
-   private void checkResult(Object elementToCheck) {
-       checkResult(elementToCheck, false);
-   }
+    protected void checkResult(Object elementToCheck) {
+    	checkResult(elementToCheck, false);
+    }
 
 	 
 	protected void checkResult(Object elementToCheck, boolean slurp) {
@@ -110,7 +110,7 @@ public class Parser implements IParser
 	}
 	
 	 
-	private int findBeginPos(final ArrayList list,
+	protected int findBeginPos(final ArrayList list,
 			PositionedNode n) {
 		Object first = list.get(0);
 		if (!(first instanceof PositionedNode) && !(first instanceof IToken)) {
@@ -141,7 +141,7 @@ public class Parser implements IParser
 	}
 
 	 
-	private int findEndPos(final ArrayList list) {
+	protected int findEndPos(final ArrayList list) {
 		Object last = list.get(list.size() - 1);
 		if (!(last instanceof PositionedNode) && !(last instanceof IToken)) {
 			final List list2 = (List) last;
@@ -159,7 +159,7 @@ public class Parser implements IParser
 		return item.getEndIndex();
 	}
 
-	private int findIndex(final IToken token) {
+	protected int findIndex(final IToken token) {
 		final List<IToken> list = this.lex.getTokenList();
 
 		for (int i = list.size() - 1; i >= 0; i--) {
@@ -171,13 +171,13 @@ public class Parser implements IParser
 		return -1;
 	}
 
-	private SourcePosition createBeginPos(final int index) {
+	protected SourcePosition createBeginPos(final int index) {
 		final List<IToken> list = this.lex.getTokenList();
 		final IToken token = list.get(index);
 		return new SourcePosition(token.getLine(), token.getPos());
 	}
 
-	private SourcePosition createEndPos(final int index) {
+	protected SourcePosition createEndPos(final int index) {
 		final List<IToken> list = this.lex.getTokenList();
 		final IToken token = list.get(index);
 		return new SourcePosition(token.getLine(), token.getPos()
@@ -529,7 +529,7 @@ Macro:ParserGotoTail
 $
 
 Macro:ParserErrorsHeader
-    private static String[] errorMessages;
+    protected static String[] errorMessages;
 /*      {
 
 $
