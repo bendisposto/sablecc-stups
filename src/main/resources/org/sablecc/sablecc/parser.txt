@@ -41,8 +41,8 @@ public class Parser implements IParser
     private final static int ACCEPT = 2;
     private final static int ERROR = 3;
     
-    private ArrayList firstPopped = null;
-    private ArrayList lastPopped = null;
+    protected ArrayList firstPopped = null;
+    protected ArrayList lastPopped = null;
     private ITokenListContainer lex;
 
     public Parser(  Lexer lexer)
@@ -55,12 +55,12 @@ public class Parser implements IParser
     private Map<PositionedNode, SourcecodeRange> mapping = new HashMap<PositionedNode, SourcecodeRange>();    
     public Map<PositionedNode, SourcecodeRange> getMapping() { 	return this.mapping; }
 
-   private void checkResult(Object elementToCheck) {
-       checkResult(elementToCheck, false);
-   }
+    protected void checkResult(Object elementToCheck) {
+    	checkResult(elementToCheck, false);
+    }
 
 	 
-	private void checkResult(Object elementToCheck, boolean slurp) {
+	protected void checkResult(Object elementToCheck, boolean slurp) {
 		// nodes with no tokens or sub nodes at all may exist
 		if (this.firstPopped == null) {
 			return;
@@ -110,7 +110,7 @@ public class Parser implements IParser
 	}
 	
 	 
-	private int findBeginPos(final ArrayList list,
+	protected int findBeginPos(final ArrayList list,
 			PositionedNode n) {
 		Object first = list.get(0);
 		if (!(first instanceof PositionedNode) && !(first instanceof IToken)) {
@@ -141,7 +141,7 @@ public class Parser implements IParser
 	}
 
 	 
-	private int findEndPos(final ArrayList list) {
+	protected int findEndPos(final ArrayList list) {
 		Object last = list.get(list.size() - 1);
 		if (!(last instanceof PositionedNode) && !(last instanceof IToken)) {
 			final List list2 = (List) last;
@@ -159,7 +159,7 @@ public class Parser implements IParser
 		return item.getEndIndex();
 	}
 
-	private int findIndex(final IToken token) {
+	protected int findIndex(final IToken token) {
 		final List<IToken> list = this.lex.getTokenList();
 
 		for (int i = list.size() - 1; i >= 0; i--) {
@@ -171,13 +171,13 @@ public class Parser implements IParser
 		return -1;
 	}
 
-	private SourcePosition createBeginPos(final int index) {
+	protected SourcePosition createBeginPos(final int index) {
 		final List<IToken> list = this.lex.getTokenList();
 		final IToken token = list.get(index);
 		return new SourcePosition(token.getLine(), token.getPos());
 	}
 
-	private SourcePosition createEndPos(final int index) {
+	protected SourcePosition createEndPos(final int index) {
 		final List<IToken> list = this.lex.getTokenList();
 		final IToken token = list.get(index);
 		return new SourcePosition(token.getLine(), token.getPos()
@@ -261,7 +261,7 @@ Macro:ParserCommon
         return s.state;
     }
 
-    private ArrayList pop()
+    protected ArrayList pop()
     {
     	ArrayList list = ((State) this.stack.previous()).nodes; 
 		if (this.firstPopped == null) {
@@ -395,7 +395,7 @@ Macro:ParserNewHeader
 
 
      
-    ArrayList new$0$() /* reduce $1$ */
+    protected ArrayList new$0$() /* reduce $1$ */
     {
         this.firstPopped = null;
         this.lastPopped = null;
@@ -472,11 +472,11 @@ Macro:ParserTypedLinkedListAdd
 $
 
 Macro:ParserTypedLinkedListAddAll
-	if($2$Node$3$ != null) //Macro:ParserTypedLinkedListAddAll
-	{
-      $0$Node$1$.addAll($2$Node$3$);
-  	  //$0$Node$1$ = $2$Node$3$;
-	}
+		if($2$Node$3$ != null) //Macro:ParserTypedLinkedListAddAll
+		{
+	      $0$Node$1$.addAll($2$Node$3$);
+	  	  //$0$Node$1$ = $2$Node$3$;
+		}
 
 $
 
@@ -529,7 +529,7 @@ Macro:ParserGotoTail
 $
 
 Macro:ParserErrorsHeader
-    private static String[] errorMessages;
+    protected static String[] errorMessages;
 /*      {
 
 $
