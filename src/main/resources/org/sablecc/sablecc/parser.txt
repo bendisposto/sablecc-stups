@@ -472,11 +472,11 @@ Macro:ParserTypedLinkedListAdd
 $
 
 Macro:ParserTypedLinkedListAddAll
-	if($2$Node$3$ != null) //Macro:ParserTypedLinkedListAddAll
-	{
-      $0$Node$1$.addAll($2$Node$3$);
-  	  //$0$Node$1$ = $2$Node$3$;
-	}
+		if($2$Node$3$ != null) //Macro:ParserTypedLinkedListAddAll
+		{
+	      $0$Node$1$.addAll($2$Node$3$);
+	  	  //$0$Node$1$ = $2$Node$3$;
+		}
 
 $
 
