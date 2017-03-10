@@ -184,6 +184,10 @@ public class Parser implements IParser
 				+ token.getText().length());
 	}
 	
+	protected boolean addElementsFromListToNewList(String productionRuleAsString) {
+		return true;
+	}
+	
 $
 
 Macro:ParserInliningPushHeader
@@ -399,13 +403,14 @@ Macro:ParserNewHeader
     {
         this.firstPopped = null;
         this.lastPopped = null;
-          ArrayList nodeList = new ArrayList();
+        final boolean addElementsToNewList = addElementsFromListToNewList("$1$"); 
+        ArrayList nodeList = new ArrayList();
 
 
 $
 
 Macro:ParserNewBodyDecl
-          ArrayList nodeArrayList$0$ = pop();
+        ArrayList nodeArrayList$0$ = pop();
 
 $
 
@@ -464,32 +469,35 @@ Macro:ParserNewBodyNewTail
 $
 
 Macro:ParserTypedLinkedListAdd
-	if($2$Node$3$ != null)
-	{
-	  $0$Node$1$.add($2$Node$3$);
-	}
+		if($2$Node$3$ != null)
+		{
+		  $0$Node$1$.add($2$Node$3$);
+		}
 
 $
 
 Macro:ParserTypedLinkedListAddAll
 		if($2$Node$3$ != null) //Macro:ParserTypedLinkedListAddAll
 		{
-	      $0$Node$1$.addAll($2$Node$3$);
-	  	  //$0$Node$1$ = $2$Node$3$;
+			if(addElementsToNewList){
+				$0$Node$1$.addAll($2$Node$3$);
+			}else{
+				$0$Node$1$ = $2$Node$3$;
+			}
 		}
 
 $
 
 Macro:ParserTypedLinkedListAddAll2
-	if($2$ != null) //Macro:ParserTypedLinkedListAddAll2	
-	{
-	  $0$Node$1$.addAll($2$);
-	}
+		if($2$ != null) //Macro:ParserTypedLinkedListAddAll2	
+		{
+		  $0$Node$1$.addAll($2$);
+		}
 
 $
 
 Macro:ParserNewBodyListAdd
-	nodeList.add($0$Node$1$);
+		nodeList.add($0$Node$1$);
 
 $
 
