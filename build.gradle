@@ -20,11 +20,6 @@ repositories {
   jcenter()
 }
 
-dependencies {
-  testCompile 'junit:junit:4.8.2'
-}
-
-
 task javadocJar(type: Jar) {
   classifier = 'javadoc'
   from javadoc
