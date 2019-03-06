@@ -12,10 +12,8 @@ wrapper {
   distributionType = Wrapper.DistributionType.ALL
 }
 
-allprojects {
-  sourceCompatibility = 1.6
-  targetCompatibility = 1.6
-}
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
 
 dependencies {
   testCompile 'junit:junit:4.8.2'
