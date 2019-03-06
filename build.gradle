@@ -1,3 +1,4 @@
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
@@ -20,6 +21,8 @@ repositories {
   jcenter()
 }
 
+mainClassName = "org.sablecc.sablecc.SableCC"
+
 task javadocJar(type: Jar) {
   classifier = 'javadoc'
   from javadoc
@@ -32,7 +35,7 @@ task sourcesJar(type: Jar) {
 
 jar {
   manifest {
-    attributes 'Main-Class': 'org.sablecc.sablecc.SableCC'
+    attributes 'Main-Class': mainClassName
   }
 }
 
