@@ -15,6 +15,11 @@ wrapper {
 sourceCompatibility = 1.6
 targetCompatibility = 1.6
 
+repositories {
+  mavenLocal()
+  jcenter()
+}
+
 dependencies {
   testCompile 'junit:junit:4.8.2'
 }
