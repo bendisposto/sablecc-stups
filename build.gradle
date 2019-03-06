@@ -7,6 +7,11 @@ project.version = '3.2.14-SNAPSHOT'
 project.group = 'de.hhu.stups'
 project.archivesBaseName = "sablecc"
 
+wrapper {
+	gradleVersion = "5.2.1"
+	distributionType = Wrapper.DistributionType.ALL
+}
+
 allprojects {
     sourceCompatibility = 1.6
     targetCompatibility = 1.6
