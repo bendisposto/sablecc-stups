@@ -8,8 +8,8 @@ project.group = 'de.hhu.stups'
 project.archivesBaseName = "sablecc"
 
 allprojects {
-    sourceCompatibility = 1.5
-    targetCompatibility = 1.5
+    sourceCompatibility = 1.6
+    targetCompatibility = 1.6
 }
 
 dependencies {
