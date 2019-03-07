@@ -1,3 +1,4 @@
+apply plugin: 'application'
 apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'maven'
@@ -7,51 +8,56 @@ project.version = '3.2.14-SNAPSHOT'
 project.group = 'de.hhu.stups'
 project.archivesBaseName = "sablecc"
 
-allprojects {
-    sourceCompatibility = 1.5
-    targetCompatibility = 1.5
+wrapper {
+  gradleVersion = "5.2.1"
+  distributionType = Wrapper.DistributionType.ALL
 }
 
-dependencies {
- testCompile 'junit:junit:4.8.2'
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+repositories {
+  mavenLocal()
+  jcenter()
 }
 
+mainClassName = "org.sablecc.sablecc.SableCC"
 
 task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from javadoc
+  archiveClassifier.set("javadoc")
+  from javadoc
 }
 
 task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
+  archiveClassifier.set("sources")
+  from sourceSets.main.allSource
 }
 
 jar {
-	manifest {
-		attributes 'Main-Class': 'org.sablecc.sablecc.SableCC'
-	}
+  manifest {
+    attributes 'Main-Class': mainClassName
+  }
 }
 
 artifacts {
-    archives javadocJar, sourcesJar
+  archives javadocJar, sourcesJar
 }
 
 task writeVersion() {
 
   doFirst {
-  def buildconstants_class = """
-  package org.sablecc.sablecc;
+    def buildconstants_class = """
+package org.sablecc.sablecc;
 
-  public class Version
-  {
-    public static final String VERSION = "${project.version}";
+public class Version
+{
+  public static final String VERSION = "${project.version}";
+}
+"""
+    File f = file("src/main/java/org/sablecc/sablecc/Version.java")
+    f.delete()
+    f <<  buildconstants_class
   }
-  """
-  File f = file("src/main/java/org/sablecc/sablecc/Version.java")
-  f.delete()
-  f <<  buildconstants_class
- }
 }
 
 compileJava {
@@ -62,54 +68,54 @@ task deploy(dependsOn: [jar,test,javadoc], group: 'Build')
 
 if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
 
-apply plugin: 'signing'
+  apply plugin: 'signing'
 
-signing {
+  signing {
     sign configurations.archives
-}
-uploadArchives {
-  repositories {
-    mavenDeployer {
-      beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+  }
+  uploadArchives {
+    repositories {
+      mavenDeployer {
+        beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-      repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-        authentication(userName: ossrhUsername, password: ossrhPassword)
-      }
-
-      pom.project {
-        name 'SableCC - Stups fork'
-        packaging 'jar'
-        // optionally artifactId can be defined here
-        description 'This version of SableCC enriches the abstract syntax tree with information about tokens.'
-        url 'https://github.com/bendisposto/sablecc-stups'
-
-        licenses {
-          license {
-            name 'GNU Lesser General Public License, Version 2.1'
-            url 'http://www.gnu.org/licenses/lgpl-2.1.html'
-          }
+        repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+          authentication(userName: ossrhUsername, password: ossrhPassword)
         }
 
-        scm {
-          connection 'scm:git:git://github.com/bendisposto/sablecc-stups.git'
-          developerConnection 'scm:git:git@github.com:bendisposto/sablecc-stups.git'
+        snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+          authentication(userName: ossrhUsername, password: ossrhPassword)
+        }
+
+        pom.project {
+          name 'SableCC - Stups fork'
+          packaging 'jar'
+          // optionally artifactId can be defined here
+          description 'This version of SableCC enriches the abstract syntax tree with information about tokens.'
           url 'https://github.com/bendisposto/sablecc-stups'
-        }
+
+          licenses {
+            license {
+              name 'GNU Lesser General Public License, Version 2.1'
+              url 'http://www.gnu.org/licenses/lgpl-2.1.html'
+            }
+          }
+
+          scm {
+            connection 'scm:git:git://github.com/bendisposto/sablecc-stups.git'
+            developerConnection 'scm:git:git@github.com:bendisposto/sablecc-stups.git'
+            url 'https://github.com/bendisposto/sablecc-stups'
+          }
 
 
-        developers {
-          developer {
-            id 'bendisposto'
-            name 'Jens Bendisposto'
-            email 'jens@bendisposto.de'
+          developers {
+            developer {
+              id 'bendisposto'
+              name 'Jens Bendisposto'
+              email 'jens@bendisposto.de'
+            }
           }
         }
       }
     }
   }
-}
 }
