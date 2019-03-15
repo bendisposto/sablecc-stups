@@ -39,8 +39,8 @@ public class Lexer implements ITokenListContainer
     protected State state = State.$2$;
 
     private PushbackReader in;
-    private int line;
-    private int pos;
+    protected int line;
+    protected int pos;
     private boolean cr;
     private boolean eof;
     private final StringBuffer text = new StringBuffer();
