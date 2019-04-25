@@ -64,8 +64,6 @@ compileJava {
   dependsOn = ['writeVersion']
 }
 
-task deploy(dependsOn: [jar,test,javadoc], group: 'Build')
-
 if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
 
   apply plugin: 'signing'
