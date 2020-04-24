@@ -9,7 +9,7 @@ project.group = 'de.hhu.stups'
 project.archivesBaseName = "sablecc"
 
 wrapper {
-  gradleVersion = "5.2.1"
+  gradleVersion = "6.3"
   distributionType = Wrapper.DistributionType.ALL
 }
 
@@ -63,8 +63,6 @@ public class Version
 compileJava {
   dependsOn = ['writeVersion']
 }
-
-task deploy(dependsOn: [jar,test,javadoc], group: 'Build')
 
 if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
 

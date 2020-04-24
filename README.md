@@ -27,8 +27,8 @@ This derived work is, like SableCC, covered by the GNU Lesser General Public Lic
 Building
 ---
 
-* Clone the repository
-* Run the deploy target using gradle. If you don't have gradle installed, you can use the gradlew wrapper scripts, e.g., under Linux use './gradlew deploy'
+* Clone the repository.
+* Run the `assemble` target using Gradle (`./gradlew assemble` on Linux/macOS/etc., `gradlew.bat assemble` on Windows).
 * The binary is located in the build/libs subdirectory.
 
 Documentation

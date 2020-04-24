@@ -5,7 +5,7 @@ before_install:
 - openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in pubring.gpg.enc -out pubring.gpg -d
 - openssl aes-256-cbc -pass pass:$ENCRYPTION_PASSWORD -in gradle.properties.enc -out gradle.properties -d
 
-script: gradle uploadArchives
+script: ./gradlew uploadArchives
 
 env:
   global:
